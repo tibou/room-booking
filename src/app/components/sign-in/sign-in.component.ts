@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -6,10 +7,16 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent {
+export class SignInComponent  implements OnInit{
 
-  constructor(public authService: AuthService){
+  constructor(public authService: AuthService, private router: Router){
     
+  }
+  ngOnInit(): void {
+    if(this.authService.isLoggedIn){
+      this.router.navigate(['dashboard']);
+    }
+   
   }
 
 }
