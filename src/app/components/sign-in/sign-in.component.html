@@ -15,35 +15,35 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Room Booking</h1>
                 </div>
-                <form class="user">
+                <div class="alert alert-danger" role="alert" *ngIf="error.submitted === true">
+                  Email ou mot de passe invalide
+                </div>
+                <div class="d-flex justify-content-center" *ngIf="submitted === true">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+                <form class="user" (ngSubmit)="login()" ngNativeValidate>
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                      aria-describedby="emailHelp" placeholder="Enter Email Address..." #email>
+                    <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
+                      aria-describedby="emailHelp" placeholder="Enter Email Address..." [(ngModel)]="credentials.email" required>
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword"
-                      placeholder="Password" #password>
+                    <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword"
+                      placeholder="Password" [(ngModel)]="credentials.password" required>
                   </div>
-                  <!--  <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div> -->
-                  <a routerLink="#" class="btn btn-primary btn-user btn-block"
-                    (click)="authService.SignIn(email.value, password.value)">
-                    Login
-                  </a>
+                  <button type="submit" class="btn btn-primary btn-user btn-block">
+                    Connexion
+                  </button>
                   <hr>
 
                 </form>
                 <hr>
                 <div class="text-center">
-                  <a class="small" routerLink="/forgot-password">Forgot Password?</a>
+                  <a class="small" routerLink="/forgot-password">Mot de passe oublié?</a>
                 </div>
                 <div class="text-center">
-                  <a class="small" routerLink="/register-user">Create an Account!</a>
+                  <a class="small" routerLink="/register-user">Créer un compte!</a>
                 </div>
               </div>
             </div>

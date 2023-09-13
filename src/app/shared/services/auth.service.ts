@@ -33,7 +33,7 @@ export class AuthService {
 
   // Sign in with email/password
   SignIn(email: string, password: string) {
-    return this.afAuth
+   return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.SetUserData(result.user);
@@ -44,7 +44,8 @@ export class AuthService {
         });
       })
       .catch((error) => {
-        window.alert(error.message);
+        return error.message;
+        //window.alert(error.message);
       });
   }
 
