@@ -1,0 +1,30 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Ajouter d'une salle</h1>
+
+    <form [formGroup]="roomForm" (ngSubmit)="submit()" ngNativeValidate>
+
+        <div class="row">
+            <div class="col-6">
+                <label for="name">Nom:</label>
+                <input id="name" type="text" class="form-control" formControlName="name" required="">
+            </div>
+            <div class="col-6">
+                <label for="capacity">Capacité:</label>
+                <input id="capacity" type="number" class="form-control" formControlName="capacity" required>
+            </div>
+            <div class="col-12">
+                <label for="location">Localisation:</label>
+                <input id="location" type="text" class="form-control" formControlName="location" required>
+            </div>
+            <div class="col-4 mt-2">
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+<!-- /.container-fluid -->

@@ -21,4 +21,8 @@ export class RoomService {
     //return this.http.get<Room[]>("https://jsonplaceholder.typicode.com/posts");
     return of(this.rooms);
   }
+
+  create(data: any){
+
+  }
 }
